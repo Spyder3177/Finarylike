@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080A12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="K Finance" />
+  <title>K Finance V2</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="phone-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">K FINANCE · V2</p>
+        <h1>Vue familiale</h1>
+      </div>
+      <button id="themeBtn" class="icon-btn" aria-label="Changer de thème">◐</button>
+    </header>
+
+    <main id="app">
+      <section class="screen active" data-screen="home">
+        <article class="hero-card glass">
+          <div class="hero-top">
+            <span>Patrimoine net</span>
+            <span class="pill positive">+4,8%</span>
+          </div>
+          <strong id="netWorth">42 850 €</strong>
+          <p>Budget, comptes, épargne, dettes et revente au même endroit.</p>
+          <div class="mini-chart" aria-hidden="true">
+            <i style="height:35%"></i><i style="height:45%"></i><i style="height:38%"></i><i style="height:55%"></i><i style="height:52%"></i><i style="height:70%"></i><i style="height:82%"></i>
+          </div>
+        </article>
+
+        <div class="grid-2">
+          <article class="stat-card">
+            <span>Cashflow mai</span>
+            <strong class="positive">+620 €</strong>
+          </article>
+          <article class="stat-card">
+            <span>Taux épargne</span>
+            <strong>18%</strong>
+          </article>
+        </div>
+
+        <section class="section-head">
+          <h2>Répartition</h2>
+          <button class="ghost" data-open="budget">Voir</button>
+        </section>
+
+        <div class="asset-list">
+          <div class="asset-row">
+            <div><b>Compte courant</b><small>Crédit Agricole</small></div>
+            <strong>3 240 €</strong>
+          </div>
+          <div class="asset-row">
+            <div><b>Épargne</b><small>Livret / réserve</small></div>
+            <strong>14 600 €</strong>
+          </div>
+          <div class="asset-row">
+            <div><b>Revente</b><small>Stock matériel informatique</small></div>
+            <strong>2 380 €</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="budget">
+        <section class="section-head">
+          <h2>Budget mensuel</h2>
+          <span class="pill">Mai 2026</span>
+        </section>
+        <article class="glass budget-ring">
+          <div class="ring"><span>72%</span></div>
+          <div>
+            <h3>1 740 € dépensés</h3>
+            <p>Sur 2 400 € prévus. Reste estimé : <b>660 €</b>.</p>
+          </div>
+        </article>
+        <div id="categories" class="category-stack"></div>
+      </section>
+
+      <section class="screen" data-screen="accounts">
+        <section class="section-head">
+          <h2>Comptes & actifs</h2>
+          <button id="addDemo" class="ghost">+ démo</button>
+        </section>
+        <div id="accountsList" class="asset-list"></div>
+      </section>
+
+      <section class="screen" data-screen="goals">
+        <section class="section-head">
+          <h2>Objectifs</h2>
+          <span class="pill positive">3 actifs</span>
+        </section>
+        <div class="goal-card">
+          <div><b>Travaux bureau</b><small>Isolation / faux plafond / éclairage</small></div>
+          <span>38%</span>
+          <progress value="38" max="100"></progress>
+        </div>
+        <div class="goal-card">
+          <div><b>Épargne sécurité</b><small>Objectif 6 mois de charges</small></div>
+          <span>61%</span>
+          <progress value="61" max="100"></progress>
+        </div>
+        <div class="goal-card">
+          <div><b>Stock revente</b><small>GPU, serveurs, réseau</small></div>
+          <span>44%</span>
+          <progress value="44" max="100"></progress>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="import">
+        <section class="section-head">
+          <h2>Import CSV</h2>
+          <span class="pill">Crédit Agricole</span>
+        </section>
+        <label class="drop-zone">
+          <input id="csvInput" type="file" accept=".csv,text/csv" />
+          <strong>Importer un CSV</strong>
+          <span>Date · Libellé · Débit euros · Crédit euros</span>
+        </label>
+        <div id="csvResult" class="csv-result">Aucun fichier importé.</div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <button class="tab active" data-tab="home">⌂<span>Accueil</span></button>
+      <button class="tab" data-tab="budget">◷<span>Budget</span></button>
+      <button class="tab" data-tab="accounts">▣<span>Comptes</span></button>
+      <button class="tab" data-tab="goals">◎<span>Objectifs</span></button>
+      <button class="tab" data-tab="import">⇪<span>Import</span></button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
